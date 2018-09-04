@@ -1,9 +1,12 @@
-package com.example.fugla.polbriller;
+package com.example.fugla.polbriller.MainActivity;
 
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+
+import com.example.fugla.polbriller.MVP.ActivityBase;
+import com.example.fugla.polbriller.MVP.Presenter;
+import com.example.fugla.polbriller.R;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends ActivityBase implements MainContract.MainView {
 
     private static final String LINK = "https://www.vinmonopolet.no/medias/sys_master/products/products/hbc/hb0/8834253127710/produkter.csv";
 
@@ -73,5 +76,10 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         return csvLine;
+    }
+
+    @Override
+    protected Presenter presenter() {
+        return null;
     }
 }
